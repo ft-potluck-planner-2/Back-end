@@ -16,6 +16,7 @@ const findBy = (filter) => {
 
 const addUser = async (user) => {
   const newUser = await db("users_table").insert(user, ["user_id", "username"]);
+
   return newUser;
 };
 

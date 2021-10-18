@@ -1,12 +1,7 @@
 const db = require("../../data/db-config");
 
-const findAll = () => {
-  return db("potlucks_table");
-};
-
-const findById = async (id) => {
-  const user = await db("potlucks_table").where("potluck_id", id).first();
-  return user;
+const findById = (id) => {
+  return db("potlucks_table as pt").where("potluck_id", id).first();
 };
 
 const addPotluck = async (event) => {
@@ -21,7 +16,6 @@ const addPotluck = async (event) => {
 };
 
 module.exports = {
-  findAll,
   findById,
   addPotluck,
 };
