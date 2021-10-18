@@ -72,3 +72,9 @@ exports.down = async (knex) => {
     .dropTableIfExists("foods_table")
     .dropTableIfExists("users_table");
 };
+
+//Tables:
+//Guests-- Prime ID, user ID, potluck ID
+//Items-- Prime ID, Item name, description, User ID, Potluck ID
+//Potlucks-- prime ID, Date, Time, Location, Organizer ID{For guests join in model: (Guests)potluck ID && (Potluck)Prime ID}, {For items join in model: (Items)potluck ID && (Potluck)Prime ID}
+//Users-- Prime ID, Username, Password
