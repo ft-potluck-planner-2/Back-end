@@ -9,7 +9,19 @@ const findById = async (id) => {
   return user;
 };
 
+const addPotluck = async (event) => {
+  const newPotluck = await db("potlucks_table").insert(event, [
+    "potluck_name",
+    "potluck_location",
+    "potluck_date",
+    "potluck_time",
+    "user_id",
+  ]);
+  return newPotluck;
+};
+
 module.exports = {
   findAll,
   findById,
+  addPotluck,
 };

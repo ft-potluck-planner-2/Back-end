@@ -2,8 +2,8 @@ const Potlucks = require("./potlucks-model");
 const router = require("express").Router();
 const { checkPotlucksBody } = require("../../middleware");
 
-router.get("/", (req, res, next) => {
-  Potlucks.findAll().then((potlucks) => {
+router.get("/:user_id/potlucks", (req, res, next) => {
+  Potlucks.findById(req.params.user_id).then((potlucks) => {
     res.status(200).json(potlucks);
   });
 });
