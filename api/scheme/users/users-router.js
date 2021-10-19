@@ -7,7 +7,7 @@ const {
   checkCredentialsBody,
   checkUserNameFree,
   checkUserNameExist,
-} = require("../../middleware");
+} = require("../../Middleware/auth-middleware");
 
 router.get("/", (req, res, next) => {
   Users.findAll().then((users) => {

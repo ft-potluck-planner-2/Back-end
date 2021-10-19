@@ -7,4 +7,27 @@ router.get("/", (req, res, next) => {
   });
 });
 
+router.post("/newPotluck", async (req, res, next) => {
+  const { name, location, date, time } = req.body;
+  try {
+    const newLuck = { name, location, date, time };
+    const luck = await Potlucks.insertPotLuck(newLuck);
+    res.status(201).json(luck);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put("/newItem/update"), async (req, res, next) => {
+  const { name, location, date, time } = req.body;
+  try {
+    const newLuck = { name, location, date, time };
+
+    const luck = await Potlucks.insertPotLuck(newLuck);
+    res.status(201).json(luck);
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = router;
