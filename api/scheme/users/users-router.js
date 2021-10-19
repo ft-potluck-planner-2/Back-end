@@ -7,7 +7,7 @@ const {
   checkCredentialsBody,
   checkUserNameFree,
   checkUserNameExist,
-} = require("../../middleware");
+} = require("../../Middleware/auth-middleware");
 
 router.post(
   "/register",

@@ -1,4 +1,4 @@
-const Users = require("../api/scheme/users/users-model");
+const Users = require("../scheme/users/users-model");
 
 const checkCredentialsBody = (req, res, next) => {
   const { username, password } = req.body;
