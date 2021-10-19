@@ -21,8 +21,9 @@ const insertPotluck = async (potluck) => {
   return newPotluck;
 };
 
-const updatePotluck = async (potluck_id, changes) => {
+const updatePotluck = async (changes, potluck_id) => {
   const editedPotluck = await db("potlucks_table")
+    .where("potluck_id", potluck_id)
     .update(changes, [
       "potluck_id",
       "potluck_name",
@@ -30,8 +31,7 @@ const updatePotluck = async (potluck_id, changes) => {
       "potluck_date",
       "potluck_time",
       "user_id",
-    ])
-    .where("potluck_id", Number(potluck_id));
+    ]);
 
   return editedPotluck;
 };

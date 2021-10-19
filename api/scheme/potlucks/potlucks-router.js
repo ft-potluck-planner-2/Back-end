@@ -22,16 +22,15 @@ router.post("/:user_id/newPotluck", async (req, res, next) => {
   }
 });
 
-router.put("/:user_id/updatePotluck/:potluck_id"),
-  async (req, res, next) => {
-    const changes = req.body;
-    const { potluck_id } = req.params;
-    try {
-      const updatedPotluck = await Potlucks.updatePotluck(changes, potluck_id);
-      res.status(201).json(updatedPotluck);
-    } catch (err) {
-      next(err);
-    }
-  };
+router.put("/:user_id/updatePotluck/:potluck_id", async (req, res, next) => {
+  const changes = req.body;
+  const { potluck_id } = req.params;
+  try {
+    const updatedPotluck = await Potlucks.updatePotluck(changes, potluck_id);
+    res.status(201).json(updatedPotluck);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
