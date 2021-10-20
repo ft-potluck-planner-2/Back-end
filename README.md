@@ -1,19 +1,19 @@
 https://rjo-back-end.herokuapp.com/api/users
 
-[ G E T ] - '/'
+[GET] - '/'
 
 WHAT TO SEND - nothing
 
 WHAT YOU RECEIVE - array of all users
 { "user_id", "username", "password" }
 
-[ P O S T ] - '/register'
+[POST] - '/register'
 
 WHAT TO SEND - "username": "string", "password": "string"
 
 WHAT YOU RECEIVE - { "user_id", "username" }
 
-[ P O S T ] - '/login'
+[POST] - '/login'
 
 WHAT TO SEND - "username": "string", "password": "string"
 
