@@ -1,3 +1,30 @@
+https://rjo-back-end.herokuapp.com/api/users
+
+[GET] - /
+Returns all registered users
+
+[POST] - /register
+username and password required
+Returns the user_id, username and hashed password
+
+[POST] - /login
+username and password required
+Returns a user_id and token
+
+https://rjo-back-end.herokuapp.com/api/potlucks
+
+[GET] - /:user-id/potlucks
+Returns all potlucks user is organizer to
+
+[POST] - /:user_id/newPotluck
+potluck_name, potluck_location, potluck_date, potluck_time required
+All 4 must be string
+Returns potluck_id, potluck_name, potluck_location, potluck_date, potluck_time, user_id
+
+[PUT] - /:user-id/updatePotluck/:potluck_id
+req.body can contain any changes for potluck_name, potluck_location, potluck_date, potluck_time, but potluck_id and user_id CANNOT be changed
+Returns the updated potluck
+
 # Build Week Scaffolding for Node and PostgreSQL
 
 ## Video Tutorial

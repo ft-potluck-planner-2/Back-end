@@ -1,7 +1,7 @@
 const db = require("../../data/db-config");
 
-const findById = (id) => {
-  return db("potlucks_table as pt").where("potluck_id", id).first();
+const findById = (user_id) => {
+  return db("potlucks_table").where("user_id", user_id).first();
 };
 
 const addPotluck = async (event) => {
