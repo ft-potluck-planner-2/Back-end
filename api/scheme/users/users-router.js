@@ -9,6 +9,14 @@ const {
   checkUserNameExist,
 } = require("../../Middleware/auth-middleware");
 
+router.get("/", (req, res, next) => {
+  Users.findAll()
+    .then((users) => {
+      res.status(200).json(users);
+    })
+    .catch(next);
+});
+
 router.post(
   "/register",
   checkCredentialsBody,
