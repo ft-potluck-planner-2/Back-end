@@ -7,7 +7,7 @@ Returns all registered users
 [POST] - '/register'
 
 username and password required
-Returns the user_id, username and hashed password
+Returns the user_id and username
 
 [POST] - '/login'
 
