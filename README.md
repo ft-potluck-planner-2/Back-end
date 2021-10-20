@@ -16,6 +16,10 @@ Returns a user_id and token
 
 https://rjo-back-end.herokuapp.com/api/potlucks
 
+[GET] - '/'
+
+Returns all potlucks
+
 [GET] - '/:user-id/potlucks'
 
 Returns all potlucks user is organizer to
