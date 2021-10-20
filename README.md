@@ -2,46 +2,65 @@ https://rjo-back-end.herokuapp.com/api/users
 
 [GET] - '/'
 
-Returns all registered users
+WHAT TO SEND - nothing
+WHAT YOU RECEIVE - array of all users
+{ "user_id", "username", "password" }
 
 [POST] - '/register'
 
-username and password required
-Returns the user_id and username
+WHAT TO SEND - "username": "string", "password": "string"
+WHAT YOU RECEIVE - { "user_id", "username" }
 
 [POST] - '/login'
 
-username and password required
-Returns a user_id and token
+WHAT TO SEND - "username": "string", "password": "string"
+WHAT YOU RECEIVE - { "user_id", "token" }
 
 https://rjo-back-end.herokuapp.com/api/potlucks
 
 [GET] - '/'
 
-Returns all potlucks
+WHAT TO SEND - nothing
+WHAT YOU RECEIVE - array of all potlucks
+{ "potluck_id", "potluck_name", "potluck_location", "potluck_date", "potluck_time", "user_id" }
 
 [GET] - '/:user-id/potlucks'
 
-Returns all potlucks user is organizer to
+WHAT TO SEND - nothing
+WHAT YOU RECEIVE - array of all potlucks user_id is the organizer of
+{ "potluck_id", "potluck_name", "potluck_location", "potluck_date", "potluck_time", "user_id" }
 
 [POST] - '/:user_id/newPotluck'
 
-potluck_name, potluck_location, potluck_date, potluck_time required
-All 4 must be string
-Returns potluck_id, potluck_name, potluck_location, potluck_date, potluck_time, user_id
+WHAT TO SEND - "potluck_name", "potluck_location", "potluck_date", "potluck_time" (all string)
+WHAT YOU RECEIVE - array containing single object of newly created potluck
+{potluck_id, potluck_name, potluck_location, potluck_date, potluck_time, user_id}
 
 [PUT] - '/:user-id/updatePotluck/:potluck_id'
 
-req.body can contain any changes for potluck_name, potluck_location, potluck_date, potluck_time, but potluck_id and user_id CANNOT be changed
-Returns the updated potluck
+WHAT TO SEND - any change to "potluck_name", "potluck_location", "potluck_date", "potluck_time"
+WHAT YOU RECEIVE - array containing single object of newly updated potluck
+{potluck_id, potluck_name, potluck_location, potluck_date, potluck_time, user_id}
 
 https://rjo-back-end.herokuapp.com/api/guests
 
 [POST] - '/:potluck_id/invite'
 
-req.body must contain a username
-if username does not exist, 'invalid credentials' returned
-if username does exist, 'successfully added 'username' to the potluck' will be returned
+WHAT TO SEND - "username": "string"
+WHAT YOU RECEIVE - if username does not exist, 'invalid credentials'. If username exists, success message
+
+https://rjo-back-end.herokuapp.com/api/foods
+
+[GET] - '/:potluck_id/foods'
+
+WHAT TO SEND - nothing
+WHAT YOU RECEIVE - array containing all food items associated with that potluck
+{ "food_id", "food_name", "potluck_id" }
+
+[POST] - '/:potluck_id/addFoods'
+
+WHAT TO SEND - "food_name": "string"
+WHAT YOU RECEIVE - success message
 
 # Build Week Scaffolding for Node and PostgreSQL
 
