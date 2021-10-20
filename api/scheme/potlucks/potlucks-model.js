@@ -6,6 +6,7 @@ const findById = (id) => {
 
 const addPotluck = async (event) => {
   const newPotluck = await db("potlucks_table").insert(event, [
+    "potluck_id",
     "potluck_name",
     "potluck_location",
     "potluck_date",
@@ -15,9 +16,23 @@ const addPotluck = async (event) => {
   return newPotluck;
 };
 
-// const updatePotluck = async (changes) => {};
+const updatePotluck = async (potluck_id, changes) => {
+  const updatedPotluck = await db("potlucks_table")
+    .where("potluck_id", potluck_id)
+    .update(changes, [
+      "potluck_id",
+      "potluck_name",
+      "potluck_location",
+      "potluck_date",
+      "potluck_time",
+      "user_id",
+    ]);
+
+  return updatedPotluck;
+};
 
 module.exports = {
   findById,
   addPotluck,
+  updatePotluck,
 };

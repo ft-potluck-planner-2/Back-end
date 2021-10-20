@@ -8,15 +8,23 @@ router.get("/:user_id/potlucks", (req, res, next) => {
   });
 });
 
-router.post("/:user_id/create", checkPotlucksBody, async (req, res, next) => {
-  const { user_id } = req.params;
-  const newPotluck = await Potlucks.addPotluck({
-    ...req.body,
-    user_id,
-  });
-  res.status(201).json(newPotluck);
-});
+router.post(
+  "/:user_id/newPotluck",
+  checkPotlucksBody,
+  async (req, res, next) => {
+    const { user_id } = req.params;
+    const newPotluck = await Potlucks.addPotluck({
+      ...req.body,
+      user_id,
+    });
+    res.status(201).json(newPotluck);
+  }
+);
 
-// router.put("/:user_id/update/:potluck_id", (req, res, next) => {});
+router.put("/:user_id/updatePotluck/:potluck_id", async (req, res, next) => {
+  const { potluck_id } = req.params;
+  const updatedPotluck = await Potlucks.updatePotluck(potluck_id, req.body);
+  res.status(200).json(updatedPotluck);
+});
 
 module.exports = router;
