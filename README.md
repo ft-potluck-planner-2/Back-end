@@ -35,6 +35,14 @@ Returns potluck_id, potluck_name, potluck_location, potluck_date, potluck_time, 
 req.body can contain any changes for potluck_name, potluck_location, potluck_date, potluck_time, but potluck_id and user_id CANNOT be changed
 Returns the updated potluck
 
+https://rjo-back-end.herokuapp.com/api/guests
+
+[POST] - '/:potluck_id/invite'
+
+req.body must contain a username
+if username does not exist, 'invalid credentials' returned
+if username does exist, 'successfully added 'username' to the potluck' will be returned
+
 # Build Week Scaffolding for Node and PostgreSQL
 
 ## Video Tutorial

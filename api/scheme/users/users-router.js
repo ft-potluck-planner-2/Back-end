@@ -9,7 +9,7 @@ const {
   checkUserNameExist,
 } = require("../../middleware");
 
-router.get("/", (req, res, next) => {
+router.get("/", (req, res) => {
   Users.findAll().then((users) => {
     res.status(200).json(users);
   });
