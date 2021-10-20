@@ -8,6 +8,15 @@ router.get("/:user_id/potlucks", (req, res, next) => {
   });
 });
 
-router.post("/create", checkPotlucksBody, (req, res, next) => {});
+router.post("/:user_id/create", checkPotlucksBody, async (req, res, next) => {
+  const { user_id } = req.params;
+  const newPotluck = await Potlucks.addPotluck({
+    ...req.body,
+    user_id,
+  });
+  res.status(201).json(newPotluck);
+});
+
+// router.put("/:user_id/update/:potluck_id", (req, res, next) => {});
 
 module.exports = router;

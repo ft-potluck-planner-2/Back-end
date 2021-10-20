@@ -15,6 +15,8 @@ const addPotluck = async (event) => {
   return newPotluck;
 };
 
+// const updatePotluck = async (changes) => {};
+
 module.exports = {
   findById,
   addPotluck,

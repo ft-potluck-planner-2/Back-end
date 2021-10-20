@@ -43,18 +43,23 @@ const checkUserNameExist = async (req, res, next) => {
 };
 
 const checkPotlucksBody = (req, res, next) => {
-  const { name, location, date, time } = req.body;
-  if (!name || name.trim() === "" || typeof name !== "string") {
+  const { potluck_name, potluck_location, potluck_date, potluck_time } =
+    req.body;
+  if (
+    !potluck_name ||
+    potluck_name.trim() === "" ||
+    typeof potluck_name !== "string"
+  ) {
     return next({ status: 400, message: "potluck name is required" });
   } else if (
-    !location ||
-    location.trim() === "" ||
-    typeof location !== "string"
+    !potluck_location ||
+    potluck_location.trim() === "" ||
+    typeof potluck_location !== "string"
   ) {
     return next({ status: 400, message: "potluck location is required" });
-  } else if (!date) {
+  } else if (!potluck_date) {
     return next({ status: 400, message: "potluck date is required" });
-  } else if (!time) {
+  } else if (!potluck_time) {
     return next({ status: 400, message: "potluck time is required" });
   } else {
     next();
