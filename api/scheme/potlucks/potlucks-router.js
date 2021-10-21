@@ -18,6 +18,15 @@ router.get("/:user_id/potlucks", (req, res, next) => {
     .catch(next);
 });
 
+router.get("/:user_id/potlucks/:potluck_id", (req, res, next) => {
+  const { user_id, potluck_id } = req.params;
+  Potlucks.findOnePotluckById(user_id, potluck_id)
+    .then((potlucks) => {
+      res.status(200).json(potlucks);
+    })
+    .catch(next);
+});
+
 router.post(
   "/:user_id/newPotluck",
   checkPotlucksBody,

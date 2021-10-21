@@ -8,6 +8,12 @@ const findById = (user_id) => {
   return db("potlucks_table").where("user_id", user_id);
 };
 
+const findOnePotluckById = (user_id, potluck_id) => {
+  return db("potlucks_table")
+    .where("user_id", user_id)
+    .andWhere("potluck_id", potluck_id);
+};
+
 const addPotluck = async (event) => {
   const newPotluck = await db("potlucks_table").insert(event, [
     "potluck_id",
@@ -38,6 +44,7 @@ const updatePotluck = async (potluck_id, changes) => {
 module.exports = {
   findAll,
   findById,
+  findOnePotluckById,
   addPotluck,
   updatePotluck,
 };
