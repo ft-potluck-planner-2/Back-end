@@ -8,6 +8,10 @@ const findById = (user_id) => {
   return db("potlucks_table").where("user_id", user_id);
 };
 
+const findByPotluckId = (potluck_id) => {
+  return db("potlucks_table").where("potluck_id", potluck_id);
+};
+
 const findOnePotluckById = (user_id, potluck_id) => {
   return db("potlucks_table")
     .where("user_id", user_id)
@@ -47,4 +51,5 @@ module.exports = {
   findOnePotluckById,
   addPotluck,
   updatePotluck,
+  findByPotluckId,
 };

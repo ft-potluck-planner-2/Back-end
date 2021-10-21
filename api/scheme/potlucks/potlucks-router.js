@@ -1,6 +1,6 @@
 const Potlucks = require("./potlucks-model");
 const router = require("express").Router();
-const { checkPotlucksBody } = require("../../middleware");
+const { checkPotlucksBody, checkPotluckExist } = require("../../middleware");
 
 router.get("/", (req, res, next) => {
   Potlucks.findAll()
@@ -44,14 +44,19 @@ router.post(
   }
 );
 
-router.put("/:user_id/updatePotluck/:potluck_id", async (req, res, next) => {
-  const { potluck_id } = req.params;
-  try {
-    const updatedPotluck = await Potlucks.updatePotluck(potluck_id, req.body);
-    res.status(200).json(updatedPotluck);
-  } catch (err) {
-    next(err);
+router.put(
+  "/:user_id/updatePotluck/:potluck_id",
+  checkPotlucksBody,
+  checkPotluckExist,
+  async (req, res, next) => {
+    const { potluck_id } = req.params;
+    try {
+      const updatedPotluck = await Potlucks.updatePotluck(potluck_id, req.body);
+      res.status(200).json(updatedPotluck);
+    } catch (err) {
+      next(err);
+    }
   }
-});
+);
 
 module.exports = router;

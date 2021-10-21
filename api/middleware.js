@@ -1,4 +1,5 @@
 const Users = require("../api/scheme/users/users-model");
+const Potlucks = require("../api/scheme/potlucks/potlucks-model");
 
 const checkCredentialsBody = (req, res, next) => {
   const { username, password } = req.body;
@@ -66,9 +67,34 @@ const checkPotlucksBody = (req, res, next) => {
   }
 };
 
+const checkFoodsBody = (req, res, next) => {
+  const { food_name } = req.body;
+  if (!food_name || food_name.trim() === "" || typeof food_name !== "string") {
+    return next({ status: 400, message: "please enter a valid food item" });
+  }
+  next();
+};
+
+const checkPotluckExist = async (req, res, next) => {
+  try {
+    const { potluck_id } = req.params;
+    const existing = await Potlucks.findByPotluckId(potluck_id);
+
+    if (existing.length === 0) {
+      res.status(400).json({ message: "potluck does not exist" });
+    } else {
+      next();
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   checkCredentialsBody,
   checkUserNameFree,
   checkUserNameExist,
   checkPotlucksBody,
+  checkFoodsBody,
+  checkPotluckExist,
 };
