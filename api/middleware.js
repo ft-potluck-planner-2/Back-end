@@ -80,8 +80,8 @@ const checkPotluckExist = async (req, res, next) => {
     const { potluck_id } = req.params;
     const existing = await Potlucks.findByPotluckId(potluck_id);
 
-    if (!existing) {
-      return next({ status: 400, message: "that potluck does not exist" });
+    if (existing.length === 0) {
+      res.status(400).json({ message: "potluck does not exist" });
     } else {
       next();
     }

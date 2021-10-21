@@ -46,6 +46,7 @@ router.post(
 
 router.put(
   "/:user_id/updatePotluck/:potluck_id",
+  checkPotlucksBody,
   checkPotluckExist,
   async (req, res, next) => {
     const { potluck_id } = req.params;
