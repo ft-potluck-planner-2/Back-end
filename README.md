@@ -79,63 +79,44 @@ WHAT TO SEND - "food_name": "string"
 
 WHAT YOU RECEIVE - success message
 
-# Build Week Scaffolding for Node and PostgreSQL
+# Lambda School Build Week:
+The purpose of Build Week is to empower students to demonstrate mastery of your learning objectives. The Build Weeks experience helps prepare students for the job market.
 
-## Video Tutorial
+## Potluck Planner🐝🌾🐓🦀
 
-The following tutorial explains how to set up this project using PostgreSQL and Heroku.
 
-[![Setting up PostgreSQL for Build Week](https://img.youtube.com/vi/kTO_tf4L23I/maxresdefault.jpg)](https://www.youtube.com/watch?v=kTO_tf4L23I)
+### Pitch🦾
 
-## Requirements
+If you have ever tried to organize a potluck through text messages, online to-do lists or spreadsheets, you'll understand why this app is essential. 
 
-- [PostgreSQL, pgAdmin 4](https://www.postgresql.org/download/) and [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed in your local machine.
-- A Heroku app with the [Heroku PostgreSQL Addon](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres) added to it.
-- Development and testing databases created with [pgAdmin 4](https://www.pgadmin.org/docs/pgadmin4/4.29/database_dialog.html).
+In the world of social gatherings and potlucks the "Potluck Planner" is king. This is your place for all things pot luck.
 
-## Starting a New Project
+### MVP🎯
+1. As an `organizer` I can create an upcoming `potluck` and invite my friends to attend
 
-- Create a new repository using this template, and clone it to your local.
-- Create a `.env` file and follow the instructions inside `knexfile.js`.
-- Fix the scripts inside `package.json` to use your Heroku app.
+2. As an `organizer` I can adjust `date`s, `time`s and `location`s of the potluck
 
-## Scripts
+3. As an `organizer` I can use the list feature in my app to add food `items` that we'd like to see at the potluck
 
-- **start**: Runs the app in production.
-- **server**: Runs the app in development.
-- **migrate**: Migrates the local development database to the latest.
-- **rollback**: Rolls back migrations in the local development database.
-- **seed**: Truncates all tables in the local development database, feel free to add more seed files.
-- **test**: Runs tests.
-- **deploy**: Deploys the main branch to Heroku.
+4. As a `guest` to a potluck I want to be able to confirm that I'm going to the upcoming `event`
 
-**The following scripts NEED TO BE EDITED before using: replace `YOUR_HEROKU_APP_NAME`**
+5. As a `guest` I'd like to be able to select which `item`s I'd like to be responsible for bringing
 
-- **migrateh**: Migrates the Heroku database to the latest.
-- **rollbackh**: Rolls back migrations in the Heroku database.
-- **databaseh**: Interact with the Heroku database from the command line using psql.
-- **seedh**: Runs all seeds in the Heroku database.
+### OUR TEAM
 
-## Hot Tips
 
-- Figure out the connection to the database and deployment before writing any code.
 
-- If you need to make changes to a migration file that has already been released to Heroku, follow this sequence:
+## *`What is Build Weeks?`*
+Lambda School Build Weeks is a cross-collaborative project that takes place at the end of each unit of instruction. Learners are tasked with building out a product based on a product canvas detailing the pitch, scope and MVP of the project. These projects vary widely in their stated application but all demonstrate full CRUD-functionality in a form of a *full-stack* developed web application.
 
-  1. Roll back migrations in the Heroku database
-  2. Deploy the latest code to Heroku
-  3. Migrate the Heroku database to the latest
+Team members will work across all units of instruction- spanning from React Engineers to backend architects- to successfully build and deploy a fully-functioning, React-based web application that supports persistent data storage via a SQL database.
 
-- If your frontend devs are clear on the shape of the data they need, you can quickly build provisional endpoints that return mock data. They shouldn't have to wait for you to build the entire backend.
+Build Weeks is an exercise not just in technical chops, but too of a team's ability to realistically plan the development, via an Agile workflow, of a staged production application, all while maintaining a healthy workflow of a collaborative Github organization. The end product is the sum of a week's worth of development and is often debuted as a proof-of-concept, though front end design is taken into consideration through use of design systems and / or CSS frameworks. All of this planning takes into the account the time restrictions of delivering said product within the time frame of one week.
 
-- Keep your endpoints super lean: the bulk of the code belongs inside models and other middlewares.
+The tech stack used in these project is subject to the team's choice and is a big part of the planning process in the Product Vision Document, a brief meeting prior to the initial development, to discuss the nature of which technologies will be leveraged to build the product. These are "green field projects" and there is no prior codebase inherited at the time of Build Weeks beginning. The primary tech stack we use for Lambda School's web development curriculum includes:
 
-- Validating and sanitizing client data using a library is much less work than doing it manually.
+- **React** and **NodeJS** / **Express** for the front end
 
-- Revealing crash messages to clients is a security risk, but during development it's helpful if your frontend devs are able to tell you what crashed.
+- **SQLite3** / **PostgreSQL** for a database
 
-- PostgreSQL comes with [fantastic built-in functions](https://hashrocket.com/blog/posts/faster-json-generation-with-postgresql) for hammering rows into whatever JSON shape.
-
-- If you want to edit a migration that has already been released but don't want to lose all the data, make a new migration instead. This is a more realistic flow for production apps: prod databases are never migrated down. We can migrate Heroku down freely only because there's no valuable data from customers in it. In this sense, Heroku is acting more like a staging environment than production.
-
-- If your fronted devs are interested in running the API locally, help them set up PostgreSQL & pgAdmin in their machines, and teach them how to run migrations in their local. This empowers them to (1) help you troubleshoot bugs, (2) obtain the latest code by simply doing `git pull` and (3) work with their own data, without it being wiped every time you roll back the Heroku db. Collaboration is more fun and direct, and you don't need to deploy as often.
+- **Jest** / **Mocha** for testing
