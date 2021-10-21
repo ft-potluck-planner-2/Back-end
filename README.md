@@ -32,14 +32,14 @@ WHAT YOU RECEIVE - array of all potlucks
 
 WHAT TO SEND - nothing
 
-WHAT YOU RECEIVE - array of single potluck
+WHAT YOU RECEIVE - array of all potlucks user_id is the organizer of
 { "potluck_id", "potluck_name", "potluck_location", "potluck_date", "potluck_time", "user_id" }
 
 [GET] - '/:user-id/potlucks/:potluck_id'
 
 WHAT TO SEND - nothing
 
-WHAT YOU RECEIVE - array of all potlucks user_id is the organizer of
+WHAT YOU RECEIVE - array of single potluck
 { "potluck_id", "potluck_name", "potluck_location", "potluck_date", "potluck_time", "user_id" }
 
 [POST] - '/:user_id/newPotluck'
